@@ -35,9 +35,7 @@ class DirectoryFragmentViewModel(application: Application): AndroidViewModel(app
         // some time, so we'll take advantage of coroutines to take this work off the main thread.
         viewModelScope.launch {
             val sortedDocuments = withContext(Dispatchers.IO) {
-                childDocuments.apply {
-                    sortedBy { it.name }
-                }
+                childDocuments.sortedBy { it.name }
             }
             _documents.postValue(sortedDocuments)
         }
