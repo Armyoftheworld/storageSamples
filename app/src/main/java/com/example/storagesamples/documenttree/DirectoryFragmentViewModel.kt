@@ -2,6 +2,7 @@ package com.example.storagesamples.documenttree
 
 import android.app.Application
 import android.net.Uri
+import androidx.constraintlayout.solver.Cache
 import androidx.documentfile.provider.DocumentFile
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +17,7 @@ import kotlinx.coroutines.withContext
  * @date 2019-12-01
  * @description
  */
-class DirectoryFragmentViewModel(application: Application): AndroidViewModel(application) {
+class DirectoryFragmentViewModel(application: Application) : AndroidViewModel(application) {
     private val _documents = MutableLiveData<List<CachingDocumentFile>>()
     val documents = _documents
 
@@ -35,7 +36,17 @@ class DirectoryFragmentViewModel(application: Application): AndroidViewModel(app
         // some time, so we'll take advantage of coroutines to take this work off the main thread.
         viewModelScope.launch {
             val sortedDocuments = withContext(Dispatchers.IO) {
-                childDocuments.sortedBy { it.name }
+                childDocuments.sortedWith(Comparator { o1, o2 ->
+                    if (o1.isDirectory && o2.isDirectory ||
+                        !o1.isDirectory && !o2.isDirectory
+                    ) {
+                        o1.name?.compareTo(o2.name ?: "") ?: 0
+                    } else if (o1.isDirectory) {
+                        -1
+                    } else {
+                        1
+                    }
+                })
             }
             _documents.postValue(sortedDocuments)
         }

@@ -20,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".contentproviderpaging.PagingActivity" />
+        <provider
+            android:authorities="com.example.android.contentproviderpaging.documents"
+            android:name=".contentproviderpaging.ImageProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>

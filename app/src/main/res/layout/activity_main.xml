@@ -18,12 +18,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/open_document_tree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Open Document Tree"
         android:textAllCaps="false"
         android:onClick="openDocumentTree"
         app:layout_constraintTop_toBottomOf="@id/open_document"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/content_provider_paging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ContentProviderPaging"
+        android:textAllCaps="false"
+        android:onClick="contentProviderPaging"
+        app:layout_constraintTop_toBottomOf="@id/open_document_tree"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 

@@ -18,4 +18,22 @@
     <string name="rename_cancel">Cancel</string>
 
     <string name="error_no_activity">No activity found to open "%1$s".</string>
+
+    <array name="image_res_ids">
+        <item>@raw/cat_1</item>
+        <item>@raw/cat_2</item>
+        <item>@raw/cat_3</item>
+        <item>@raw/cat_4</item>
+        <item>@raw/cat_5</item>
+        <item>@raw/cat_6</item>
+        <item>@raw/cat_7</item>
+        <item>@raw/cat_8</item>
+        <item>@raw/cat_9</item>
+        <item>@raw/cat_10</item>
+        <item>@raw/cat_11</item>
+        <item>@raw/cat_12</item>
+        <item>@raw/cat_13</item>
+    </array>
+
+    <string name="fetched_images_out_of">Fetched from %1$d to %2$d images out of %3$d in total.</string>
 </resources>
